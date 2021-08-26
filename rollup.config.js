@@ -63,7 +63,8 @@ export default {
 		commonjs(),
 		typescript({
 			sourceMap: !production,
-			inlineSources: !production
+			inlineSources: !production,
+			rootDir: './src'
 		}),
 		alias({
 			resolve: ['.svelte', '.js'],

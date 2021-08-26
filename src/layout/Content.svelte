@@ -20,7 +20,12 @@
     $: selectedAppComponent = getAppEntryComponentByCode($selectedApp);
 </script>
 
-<main>
-    Selected app: {$selectedApp}
+<div class="wrapper">
     <svelte:component this={selectedAppComponent}/>
-</main>
+</div>
+
+<style lang="scss">
+    .wrapper {
+        height: 100%;
+    }
+</style>

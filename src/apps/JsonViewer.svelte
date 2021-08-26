@@ -1,7 +1,16 @@
 <script lang="ts">
     import Viewer from './json-viewer/components/Viewer.svelte';
+    import JsonInput from './json-viewer/components/JsonInput.svelte';
 </script>
 
-<main>
+<JsonInput/>
+<div class="json-viewer">
     <Viewer/>
-</main>
+</div>
+
+<style lang="scss">
+    .json-viewer {
+        padding: 2em;
+        background: #f5f5f5;
+    }
+</style>

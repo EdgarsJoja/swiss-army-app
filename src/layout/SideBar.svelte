@@ -6,15 +6,39 @@
         { appCode: 'sha256', label: 'Sha256' },
     ];
 
-    const selectApp = (appCode: string) => {
+    // @todo: Keep this in memory.
+    selectApp('json_viewer');
+
+    /**
+     * Set global state for currently selected app.
+     *
+     * @param appCode App code.
+     */
+    function selectApp(appCode: string) {
         selectedApp.set(appCode);
     }
 </script>
 
-<main>
-    <ul>
-        {#each apps as app}
-            <li on:click={ () => selectApp(app.appCode) }>{app.label}</li>
-        {/each}
-    </ul>
-</main>
+<div class="wrapper">
+    {#each apps as app}
+        <div class="app" on:click={ () => selectApp(app.appCode) }>{app.label}</div>
+    {/each}
+</div>
+
+<style lang="scss">
+    .wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .app {
+            padding: 1em;
+            cursor: pointer;
+
+            &:hover {
+                background: #eee;
+            }
+        }
+    }
+</style>
