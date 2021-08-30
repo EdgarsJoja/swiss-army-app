@@ -3,11 +3,16 @@
     import { json } from '../stores/json';
     import { onDestroy } from 'svelte';
 
-    $: jsonInput = parseJsonInput($json);
+    export let collapseJson: boolean = false;
 
+    $: jsonInput = parseJsonInput($json);
+    $: toggleJsonCollapse(collapseJson);
 
     const unsubscribe = json.subscribe(() => setTimeout(initJsonElements, 100));
 
+    /**
+     * Parse json.
+     */
     function parseJsonInput(value: string): any {
         let parsedValue = {};
 
@@ -38,6 +43,9 @@
      * Get list of json object item.
      */
     function initJsonElements(): void {
+        // @todo: Find out how to do this via css (remove top level object padding).
+        document.querySelector('.json-object').style.paddingLeft = 0;
+
         document.querySelectorAll('.json-object-item').forEach(item => {
             item.addEventListener('click', event => {
                 event.stopPropagation();
@@ -48,6 +56,21 @@
                     target.classList.toggle('collapsed');
                 }
             });
+        });
+    }
+
+    /**
+     * Toggle json collapse state.
+     *
+     * @param collapse
+     */
+    function toggleJsonCollapse(collapse: boolean): void {
+        document.querySelectorAll('.json-object-item.can-collapse').forEach(item => {
+            if (collapse) {
+                item.classList.remove('collapsed');
+            } else {
+                item.classList.add('collapsed');
+            }
         });
     }
 
@@ -74,6 +97,11 @@
 
         :global(.key) {
             color: $color-blue-dark;
+            cursor: pointer;
+
+            &:hover {
+                background: $color-red-light;
+            }
         }
 
         :global(.json-literal.number) {

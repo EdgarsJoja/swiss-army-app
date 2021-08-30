@@ -2,9 +2,11 @@
     import { selectedApp } from '../shared/stores/selected-app.js';
     import JsonViewer from '../apps/JsonViewer.svelte';
     import { SvelteComponent } from 'svelte';
+    import ShaHash from '../apps/ShaHash.svelte';
 
     const appMap: { appCode: string, entryComponent: SvelteComponent }[] = [
-        { appCode: 'json_viewer', entryComponent: JsonViewer }
+        { appCode: 'json_viewer', entryComponent: JsonViewer },
+        { appCode: 'sha', entryComponent: ShaHash },
     ];
 
     /**

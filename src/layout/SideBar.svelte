@@ -3,7 +3,7 @@
 
     const apps: { appCode: string, label: string }[] = [
         { appCode: 'json_viewer', label: 'Json Viewer' },
-        { appCode: 'sha256', label: 'Sha256' },
+        { appCode: 'sha', label: 'Sha-X Hash' },
     ];
 
     // @todo: Keep this in memory.
