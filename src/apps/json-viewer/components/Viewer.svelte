@@ -5,6 +5,7 @@
 
     export let collapseJson: boolean = false;
 
+    let jsonInput;
     $: jsonInput = parseJsonInput($json);
     $: toggleJsonCollapse(collapseJson);
 
