@@ -27,4 +27,8 @@
             width: 80%;
         }
     }
+
+    :global(input, textarea, select, button) {
+        border-radius: 5px;
+    }
 </style>

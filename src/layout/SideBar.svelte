@@ -40,9 +40,12 @@
 </script>
 
 <div class="wrapper">
-    <input type="text" bind:value={appsFilter}/>
+    <input class="app-filter" type="text" bind:value={appsFilter}/>
     {#each filteredApps as app}
-        <div class="app" on:click={ () => selectApp(app.appCode) }>{app.label}</div>
+        <div class="app"
+             class:selected={app.appCode === $selectedApp}
+             on:click={ () => selectApp(app.appCode) }
+        >{app.label}</div>
     {/each}
 </div>
 
@@ -60,6 +63,10 @@
 
             &:hover {
                 background: #eee;
+            }
+
+            &.selected {
+                font-weight: bold;
             }
         }
     }
