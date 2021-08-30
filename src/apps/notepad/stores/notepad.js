@@ -5,4 +5,4 @@ const storageKey = 'notepad.text';
 const storedText = localStorage.getItem(storageKey);
 export let text = writable(storedText);
 
-text.subscribe(value => localStorage.setItem(storageKey, value.trim()));
+text.subscribe(value => localStorage.setItem(storageKey, value?.trim()));
