@@ -11,6 +11,7 @@
     const apps: App[] = [
         { appCode: 'json_viewer', label: 'Json Viewer' },
         { appCode: 'sha', label: 'Sha-X Hash' },
+        { appCode: 'notepad', label: 'Notepad' },
     ];
 
     let filteredApps: App[];
