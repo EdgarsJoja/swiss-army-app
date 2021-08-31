@@ -31,4 +31,8 @@
     :global(input, textarea, select, button) {
         border-radius: 5px;
     }
+
+    :global(button) {
+        padding: .5em 1em;
+    }
 </style>

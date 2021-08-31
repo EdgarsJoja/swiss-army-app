@@ -4,11 +4,13 @@
     import { SvelteComponent } from 'svelte';
     import ShaHash from '../apps/ShaHash.svelte';
     import Notepad from '../apps/Notepad.svelte';
+    import Whiteboard from '../apps/Whiteboard.svelte';
 
     const appMap: { appCode: string, entryComponent: SvelteComponent }[] = [
         { appCode: 'json_viewer', entryComponent: JsonViewer },
         { appCode: 'sha', entryComponent: ShaHash },
         { appCode: 'notepad', entryComponent: Notepad },
+        { appCode: 'whiteboard', entryComponent: Whiteboard },
     ];
 
     /**

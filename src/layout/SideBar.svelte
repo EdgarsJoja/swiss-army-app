@@ -12,6 +12,7 @@
         { appCode: 'json_viewer', label: 'Json Viewer' },
         { appCode: 'sha', label: 'Sha-X Hash' },
         { appCode: 'notepad', label: 'Notepad' },
+        { appCode: 'whiteboard', label: 'Whiteboard' },
     ];
 
     let filteredApps: App[];
