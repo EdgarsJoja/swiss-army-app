@@ -8,6 +8,16 @@
         context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
+    export function downloadImage() {
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+
+        link.href = dataUrl;
+        link.download = 'img';
+
+        link.click();
+    }
+
     interface Coordinates {
         x: number;
         y: number;

@@ -18,8 +18,7 @@
     let filteredApps: App[];
     $: filteredApps = filterApps(appsFilter);
 
-    // @todo: Keep this in memory.
-    selectApp('json_viewer');
+    selectApp($selectedApp);
 
     /**
      * Set global state for currently selected app.

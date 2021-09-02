@@ -8,6 +8,7 @@
 <div class="wrapper">
     <div class="actions">
         <button type="button" class="clear-canvas" on:click={drawAreaComponent.clearCanvas}>Clear</button>
+        <button type="button" class="download-image" on:click={drawAreaComponent.downloadImage}>Download</button>
     </div>
     <DrawArea bind:this={drawAreaComponent}/>
 </div>
