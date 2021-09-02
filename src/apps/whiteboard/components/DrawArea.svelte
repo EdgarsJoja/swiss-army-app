@@ -5,9 +5,13 @@
      * Clears canvas.
      */
     export function clearCanvas() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = 'white';
+        context.fillRect(0, 0, canvas.width, canvas.height);
     }
 
+    /**
+     * Download current canvas as an image.
+     */
     export function downloadImage() {
         const dataUrl = canvas.toDataURL('image/png');
         const link = document.createElement('a');
@@ -36,8 +40,7 @@
 
         context = canvas.getContext('2d');
         resizeCanvas();
-        context.fillStyle = 'white';
-        context.fillRect(0, 0, canvas.width, canvas.height);
+        clearCanvas();
 
         document.addEventListener('resize', resizeCanvas);
     });

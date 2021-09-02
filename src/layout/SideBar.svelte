@@ -50,6 +50,8 @@
 </div>
 
 <style lang="scss">
+    @import "src/shared/styles/variables";
+
     .wrapper {
         height: 100%;
         display: flex;
@@ -60,13 +62,15 @@
         .app {
             padding: 1em;
             cursor: pointer;
+            border-radius: 5px;
 
             &:hover {
-                background: #eee;
+                background: $color-tertiary;
             }
 
             &.selected {
                 font-weight: bold;
+                color: $color-primary;
             }
         }
     }

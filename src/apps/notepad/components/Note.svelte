@@ -5,10 +5,11 @@
 <textarea bind:value={$text} class="notepad-textarea" placeholder="type here..." autofocus></textarea>
 
 <style lang="scss">
+    @import "src/shared/styles/variables";
+
     .notepad-textarea {
         padding: 1em;
-        border: 0;
-        background: #f9f9f9;
+        background: $color-bg;
         width: 100%;
         height: 100%;
         resize: none;

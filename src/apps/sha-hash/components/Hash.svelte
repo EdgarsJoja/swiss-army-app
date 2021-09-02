@@ -61,7 +61,7 @@
 </div>
 
 <style lang="scss">
-    $color-grey: #999;
+    @import "src/shared/styles/variables";
 
     .wrapper {
         .input-field {
@@ -69,6 +69,7 @@
         }
 
         .submit-button {
+            background: $color-accent;
             margin-top: 1em;
             padding: {
                 left: 2em;
@@ -79,7 +80,8 @@
         .display-block {
             padding: 1em;
             margin-top: 5em;
-            background: #f9f9f9;
+            border: 2px solid $color-secondary;
+            border-radius: 5px;
 
             .hashed-result {
                 overflow-x: auto;
