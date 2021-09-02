@@ -1,7 +1,9 @@
 <script lang="ts">
     import { selectedApp } from '../shared/stores/selected-app.js';
+    import { getTauriVersion, getVersion } from '@tauri-apps/api/app';
 
     let appsFilter: string = '';
+    let appVersion: string = '';
 
     interface App {
         appCode: string;
@@ -19,6 +21,12 @@
     $: filteredApps = filterApps(appsFilter);
 
     selectApp($selectedApp);
+
+    if (window.rpc) {
+        getVersion().then((version) => {
+            appVersion = version;
+        });
+    }
 
     /**
      * Set global state for currently selected app.
@@ -49,6 +57,10 @@
     {/each}
 </div>
 
+{#if appVersion}
+    <span class="app-version">v{appVersion}</span>
+{/if}
+
 <style lang="scss">
     @import "src/shared/styles/variables";
 
@@ -73,5 +85,11 @@
                 color: $color-primary;
             }
         }
+    }
+
+    .app-version {
+        position: fixed;
+        bottom: 1em;
+        left: 1em;
     }
 </style>
