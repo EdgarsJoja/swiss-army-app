@@ -64,6 +64,10 @@
 <style lang="scss">
     @import "src/shared/styles/variables";
 
+    $app-hover-background-color: $color-surface;
+    $app-text-color: $color-white;
+    $app-selected-text-color: $color-accent;
+
     .wrapper {
         height: 100%;
         display: flex;
@@ -75,14 +79,15 @@
             padding: 1em;
             cursor: pointer;
             border-radius: 5px;
+            color: $app-text-color;
 
             &:hover {
-                background: $color-tertiary;
+                background: $app-hover-background-color;
             }
 
             &.selected {
                 font-weight: bold;
-                color: $color-primary;
+                color: $app-selected-text-color;
             }
         }
     }

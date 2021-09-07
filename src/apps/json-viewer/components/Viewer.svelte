@@ -83,13 +83,15 @@
 </div>
 
 <style lang="scss">
-    $color-red: #D5896F;
-    $color-red-light: #DAB785;
-    $color-red-dark: #BE5937;
-    $color-green: #70A288;
-    $color-blue: #04395E;
-    $color-blue-dark: #031D44;
-    $color-grey: #999;
+    $color-key: #ccc;
+    $color-key-active-background: #DAB785;
+    $color-key-active: #343434;
+
+    $color-number: #00B0FF;
+    $color-string: #70A288;
+    $color-boolean: #D5896F;
+    $color-null: #BE5937;
+    $color-undefined: #eee;
 
     .wrapper {
         :global(.json-object) {
@@ -97,32 +99,33 @@
         }
 
         :global(.key) {
-            color: $color-blue-dark;
+            color: $color-key;
             cursor: pointer;
 
             &:hover {
-                background: $color-red-light;
+                color: $color-key-active;
+                background: $color-key-active-background;
             }
         }
 
         :global(.json-literal.number) {
-            color: $color-blue;
+            color: $color-number;
         }
 
         :global(.json-literal.string) {
-            color: $color-green;
+            color: $color-string;
         }
 
         :global(.json-literal.boolean) {
-            color: $color-red;
+            color: $color-boolean;
         }
 
         :global(.json-literal.null) {
-            color: $color-red-dark;
+            color: $color-null;
         }
 
         :global(.json-literal.undefined) {
-            color: $color-grey;
+            color: $color-undefined;
         }
 
         :global(.collapsed .value) {

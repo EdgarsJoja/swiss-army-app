@@ -31,21 +31,22 @@
     }
 
     :global(body) {
-        background: $color-bg;
+        background: $background-color;
     }
 
     :global(input, textarea, select, button) {
         border-radius: 5px;
-        background: $color-tertiary;
-        border: 1px solid $color-secondary;
+        background: $input-background-color;
+        border: 0;
+        color: $input-text-color;
     }
 
     :global(button) {
         padding: .5em 1em;
-        background: $color-secondary;
+        background: $button-background-color;
         font-weight: bold;
         border: 0;
-        color: $color-bg;
+        color: $button-text-color;
 
         &:hover {
             opacity: .75;

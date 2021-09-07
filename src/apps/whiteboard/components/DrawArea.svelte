@@ -5,7 +5,7 @@
      * Clears canvas.
      */
     export function clearCanvas() {
-        context.fillStyle = 'white';
+        context.fillStyle = '#272727';
         context.fillRect(0, 0, canvas.width, canvas.height);
     }
 
@@ -81,7 +81,7 @@
 
             context.lineWidth = 2;
             context.lineCap = 'round';
-            context.strokeStyle = 'grey';
+            context.strokeStyle = '#ECDBBA';
 
             context.moveTo(mousePosition.x, mousePosition.y);
             mousePosition = getMousePosition(event);
