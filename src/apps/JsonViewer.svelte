@@ -20,8 +20,10 @@
 </div>
 
 <style lang="scss">
+    @import 'src/shared/styles/variables';
+
     .json-viewer {
         padding: 2em;
-        background: #f5f5f5;
+        background: $color-surface;
     }
 </style>

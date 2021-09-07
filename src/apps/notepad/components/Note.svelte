@@ -9,7 +9,6 @@
 
     .notepad-textarea {
         padding: 1em;
-        background: $color-bg;
         width: 100%;
         height: 100%;
         resize: none;

@@ -1,6 +1,27 @@
-$color-bg: #DBE9EE;
-$color-accent: #166088;
-$color-primary: #4A6FA5;
-$color-secondary: #4F6D7A;
-$color-tertiary: #C0D6DF;
+$color-dark: #121212;
+$color-dark-variant: #272727;
+$color-red: #C84B31;
+$color-green: #346751;
+$color-grey: #ECDBBA;
+$color-white: #FFFFFF;
 
+$color-background: $color-dark;
+$color-surface: $color-dark-variant;
+$color-surface-contrast: $color-grey;
+$color-accent: $color-red;
+$color-accent-contrast: $color-dark-variant;
+$color-primary: $color-green;
+$color-primary-contrast: $color-grey;
+
+/* General */
+$background-color: $color-background;
+
+/* Buttons */
+$button-background-color: $color-primary;
+$button-text-color: $color-primary-contrast;
+$button-accent-background-color: $color-accent;
+$button-accent-text-color: $color-accent-contrast;
+
+/* Inputs */
+$input-background-color: $color-surface;
+$input-text-color: $color-surface-contrast;

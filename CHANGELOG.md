@@ -12,3 +12,4 @@ Initial release containing 4 apps:
 v1.1.0
 --
 - Updated app icon
+- Dark mode re-design
