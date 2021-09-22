@@ -15,6 +15,7 @@
         { appCode: 'sha', label: 'Sha-X Hash' },
         { appCode: 'notepad', label: 'Notepad' },
         { appCode: 'whiteboard', label: 'Whiteboard' },
+        { appCode: 'jwt', label: 'JWT' },
     ];
 
     let filteredApps: App[];

@@ -79,8 +79,6 @@
         }
 
         .submit-button {
-            background: $button-accent-background-color;
-            color: $button-accent-text-color;
             margin-top: 1em;
             padding: {
                 left: 2em;
