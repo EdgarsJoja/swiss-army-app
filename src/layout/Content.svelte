@@ -5,12 +5,16 @@
     import ShaHash from '../apps/ShaHash.svelte';
     import Notepad from '../apps/Notepad.svelte';
     import Whiteboard from '../apps/Whiteboard.svelte';
+    import JWT from '../apps/jwt.svelte';
+    import Base64 from '../apps/Base64.svelte';
 
     const appMap: { appCode: string, entryComponent: SvelteComponent }[] = [
         { appCode: 'json_viewer', entryComponent: JsonViewer },
         { appCode: 'sha', entryComponent: ShaHash },
         { appCode: 'notepad', entryComponent: Notepad },
         { appCode: 'whiteboard', entryComponent: Whiteboard },
+        { appCode: 'jwt', entryComponent: JWT },
+        { appCode: 'base64', entryComponent: Base64 },
     ];
 
     /**
