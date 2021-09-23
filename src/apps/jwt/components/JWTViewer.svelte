@@ -3,9 +3,9 @@
     import { decode } from '../functions/base64url';
     import JsonView from '../../../shared/components/JsonView.svelte';
 
-    $: JWTHeader = decode($jwt.split('.')[0] ?? '');
-    $: JWTPayload = decode($jwt.split('.')[1] ?? '');
-    $: JWTSignature = $jwt.split('.')[2] ?? '';
+    $: JWTHeader = decode($jwt?.split('.')[0] ?? '');
+    $: JWTPayload = decode($jwt?.split('.')[1] ?? '');
+    $: JWTSignature = $jwt?.split('.')[2] ?? '';
 </script>
 
 <span class="label">Header:</span>
