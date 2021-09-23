@@ -1,6 +1,6 @@
 <script lang="ts">
     import { selectedApp } from '../shared/stores/selected-app.js';
-    import { getTauriVersion, getVersion } from '@tauri-apps/api/app';
+    import { getVersion } from '@tauri-apps/api/app';
 
     let appsFilter: string = '';
     let appVersion: string = '';
@@ -16,6 +16,7 @@
         { appCode: 'notepad', label: 'Notepad' },
         { appCode: 'whiteboard', label: 'Whiteboard' },
         { appCode: 'jwt', label: 'JWT' },
+        { appCode: 'base64', label: 'Base64' },
     ];
 
     let filteredApps: App[];

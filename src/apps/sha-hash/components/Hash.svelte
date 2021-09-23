@@ -39,7 +39,7 @@
 <div class="wrapper">
     <form on:submit|preventDefault={hash}>
         <div class="input-group">
-            <label>Algorithm:</label>
+            <span class="input-label">Algorithm:</span>
             <select bind:value={selectedAlgorithm} name="algorithm" class="input-field algorithm-select">
                 {#each algorithms as algorithm}
                     <option value={algorithm.id}>{algorithm.label}</option>
@@ -48,12 +48,14 @@
         </div>
 
         <div class="input-group">
-            <label>Input:</label>
+            <span class="input-label">Input:</span>
             <input type="text" name="input" class="input-field" bind:value={input}/>
         </div>
 
         <button type="submit" class="submit-button">Hash</button>
     </form>
+
+    <span class="result-label">Result:</span>
     <div class="display-block">
         <div class="hashed-result">{hashedHex}</div>
     </div>
@@ -64,18 +66,19 @@
     @import "src/shared/styles/variables";
 
     .wrapper {
-        label {
-            color: $color-surface-contrast;
-            opacity: .75;
-            padding-bottom: .5em;
-        }
+        .input-group {
+            &:not(:first-of-type) {
+                margin-top: 1em;
+            }
 
-        .algorithm-select {
-            color: $color-surface;
-        }
+            .input-label {
+                display: block;
+                padding-bottom: .5em;
+            }
 
-        .input-field {
-            min-width: 20em;
+            .input-field {
+                min-width: 20em;
+            }
         }
 
         .submit-button {
@@ -86,11 +89,15 @@
             }
         }
 
+        .result-label {
+            display: block;
+            margin: 4em 0 .5em;
+        }
+
         .display-block {
             background: $color-surface;
             color: $color-surface-contrast;
             padding: 1em;
-            margin-top: 5em;
             border-radius: 5px;
 
             .hashed-result {

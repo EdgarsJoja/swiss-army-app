@@ -5,9 +5,11 @@ v1.2.0
 --
 New Apps:
 - JWT decoder app
+- Base64 encode/decode app
 
 Other:
 - Minor style adjustments for buttons
+- Global font change to monospace
 
 v1.1.0
 --

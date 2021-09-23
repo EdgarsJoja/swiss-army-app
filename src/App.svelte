@@ -32,6 +32,7 @@
 
     :global(body) {
         background: $background-color;
+        font-family: monospace, monospace;
     }
 
     :global(input, textarea, select, button) {

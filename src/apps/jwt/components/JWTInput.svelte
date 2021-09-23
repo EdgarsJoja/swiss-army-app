@@ -11,10 +11,12 @@
     }
 </script>
 
+<span class="label">JWT:</span>
 <input type="text" class="jwt-input" placeholder="JWT token..." bind:value={jwtInput} on:change={updateJWTStore}/>
 
 <style lang="scss">
     .jwt-input {
         width: 100%;
+        margin-top: .5em;
     }
 </style>
