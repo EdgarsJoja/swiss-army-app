@@ -1,6 +1,7 @@
 <script lang="ts">
-    import Viewer from './json-viewer/components/Viewer.svelte';
     import JsonInput from './json-viewer/components/JsonInput.svelte';
+    import JsonView from '../shared/components/JsonView.svelte';
+    import { json } from './json-viewer/stores/json';
 
     let showInput: boolean = true;
     let collapseJson: boolean = true;
@@ -16,14 +17,15 @@
 </div>
 
 <div class="json-viewer">
-    <Viewer collapseJson={collapseJson}/>
+    <JsonView collapseJson={collapseJson} json={$json}/>
 </div>
 
 <style lang="scss">
     @import 'src/shared/styles/variables';
 
     .json-viewer {
-        padding: 2em;
+        padding: 1em;
+        border-radius: 5px;
         background: $color-surface;
     }
 </style>

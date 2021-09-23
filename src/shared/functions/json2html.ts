@@ -1,20 +1,35 @@
-const json2html = (json): string => {
+/**
+ * Convert JSON to HTML.
+ *
+ * @param json
+ * @param asRoot
+ */
+const json2html = (json, asRoot = true): string => {
+    let result: string;
+
     switch (typeof json) {
         case 'object':
             if (json === null) {
-                return parseNull(json);
+                result = parseNull(json);
+                break;
             }
 
-            return parseObject(json);
+            result = parseObject(json);
+            break;
         case 'number':
         case 'boolean':
         case 'undefined':
-            return parseLiteral(json);
+            result = parseLiteral(json);
+            break;
         case 'string':
-            return parseLiteral(parseString(json));
+            result = parseLiteral(parseString(json));
+            break;
         default:
-            return '???';
+            result = '???';
+            break;
     }
+
+    return asRoot ? `<div class="json-root">${result}</div>` : result;
 };
 
 const parseLiteral = (json) => {
@@ -30,7 +45,7 @@ const parseObject = (json: object): string => {
     for (const [key, value] of Object.entries(json)) {
         html += `<li class="json-object-item ${typeof value === 'object' ? 'can-collapse' : ''}">
                     <span class="key">${key}:</span>
-                    <span class="value">${json2html(value)}</span>
+                    <span class="value">${json2html(value, false)}</span>
                  </li>`;
     }
 

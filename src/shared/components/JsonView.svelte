@@ -1,15 +1,18 @@
 <script lang="ts">
     import { json2html } from '../functions/json2html';
-    import { json } from '../stores/json';
-    import { onDestroy } from 'svelte';
 
     export let collapseJson: boolean = false;
+    export let json: string = '';
 
-    let jsonInput;
-    $: jsonInput = parseJsonInput($json);
+    let parsedJson: string;
+    let initJsonElementsTimeout;
+
+    $: {
+       parsedJson = parseJsonInput(json);
+       initJsonElementsTimeout = setTimeout(initJsonElements, 100);
+    }
+
     $: toggleJsonCollapse(collapseJson);
-
-    const unsubscribe = json.subscribe(() => setTimeout(initJsonElements, 100));
 
     /**
      * Parse json.
@@ -44,10 +47,7 @@
      * Get list of json object item.
      */
     function initJsonElements(): void {
-        // @todo: Find out how to do this via css (remove top level object padding).
-        document.querySelector('.json-object').style.paddingLeft = 0;
-
-        document.querySelectorAll('.json-object-item').forEach(item => {
+        document.querySelectorAll('.json-object-item')?.forEach(item => {
             item.addEventListener('click', event => {
                 event.stopPropagation();
 
@@ -58,6 +58,8 @@
                 }
             });
         });
+
+        clearTimeout(initJsonElementsTimeout);
     }
 
     /**
@@ -74,12 +76,10 @@
             }
         });
     }
-
-    onDestroy(unsubscribe);
 </script>
 
 <div class="wrapper">
-    {@html json2html(jsonInput)}
+    {@html json2html(parsedJson)}
 </div>
 
 <style lang="scss">
@@ -94,8 +94,13 @@
     $color-undefined: #eee;
 
     .wrapper {
+        :global(.json-root > .json-object) {
+            padding: 0;
+        }
+
         :global(.json-object) {
             list-style: none;
+            margin: 0;
         }
 
         :global(.key) {

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { jwt } from '../stores/jwt';
     import { decode } from '../functions/base64url';
+    import JsonView from '../../../shared/components/JsonView.svelte';
 
     $: JWTHeader = decode($jwt.split('.')[0] ?? '');
     $: JWTPayload = decode($jwt.split('.')[1] ?? '');
@@ -8,10 +9,14 @@
 </script>
 
 <span class="label">Header:</span>
-<div class="jwt-data jwt-data-header">{ JWTHeader }</div>
+<div class="jwt-data jwt-data-header">
+    <JsonView json={JWTHeader}/>
+</div>
 
 <span class="label">Payload:</span>
-<div class="jwt-data jwt-data-payload">{ JWTPayload }</div>
+<div class="jwt-data jwt-data-payload">
+    <JsonView json={JWTPayload}/>
+</div>
 
 <span class="label">Signature:</span>
 <div class="jwt-data jwt-data-signature">{ JWTSignature }</div>
