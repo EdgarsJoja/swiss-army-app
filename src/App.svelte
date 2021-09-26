@@ -1,6 +1,7 @@
 <script lang="ts">
     import SideBar from './layout/SideBar.svelte';
     import Content from './layout/Content.svelte';
+    import GlobalNotifications from './layout/utils/notifications/GlobalNotifications.svelte';
 </script>
 
 <div class="wrapper">
@@ -9,6 +10,10 @@
     </div>
     <div class="content">
         <Content/>
+    </div>
+
+    <div class="global-notifications">
+        <GlobalNotifications/>
     </div>
 </div>
 
@@ -50,5 +55,10 @@
         &:hover {
             opacity: .75;
         }
+    }
+
+    .global-notifications {
+        position: fixed;
+        right: 1em;
     }
 </style>
