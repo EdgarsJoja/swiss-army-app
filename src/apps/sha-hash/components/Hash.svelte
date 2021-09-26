@@ -1,5 +1,7 @@
 <script lang="ts">
     import { clipboard } from '@tauri-apps/api';
+    import { addNotification } from '../../../layout/utils/notifications';
+    import { NotificationType } from '../../../shared/components/notification';
 
     const algorithms: { id: string, label: string }[] = [
         { id: 'SHA-1', label: 'SHA-1' },
@@ -30,8 +32,11 @@
      * Copy hashed value to clipboard.
      */
     function copyHashToClipboard(): void {
-        navigator.clipboard.writeText(hashedHex).then(() => {
-            console.log('copied!');
+        clipboard.writeText(hashedHex).then(() => {
+            addNotification({
+                type: NotificationType.Success,
+                message: 'Result copied to clipboard!'
+            });
         });
     }
 </script>

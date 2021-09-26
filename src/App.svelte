@@ -47,6 +47,10 @@
         color: $input-text-color;
     }
 
+    :global(input, textarea) {
+        padding: 0.75em;
+    }
+
     :global(button) {
         padding: .5em 1em;
         border: 0;

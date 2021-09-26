@@ -1,7 +1,7 @@
 <script lang="ts">
     import { selectedApp } from '../shared/stores/selected-app.js';
     import JsonViewer from '../apps/JsonViewer.svelte';
-    import { SvelteComponent } from 'svelte';
+    import type { SvelteComponent } from 'svelte';
     import ShaHash from '../apps/ShaHash.svelte';
     import Notepad from '../apps/Notepad.svelte';
     import Whiteboard from '../apps/Whiteboard.svelte';
