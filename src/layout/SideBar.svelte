@@ -142,10 +142,4 @@
             }
         }
     }
-
-    .app-version {
-        position: fixed;
-        bottom: 1em;
-        left: 1em;
-    }
 </style>

@@ -4,9 +4,13 @@
     import { getVersion } from '@tauri-apps/api/app';
     import { addNotification } from '../utils/notifications';
     import { NotificationType } from '../../shared/components/notification';
+    import { settings } from './stores/settings';
 
     const dispatch = createEventDispatcher();
     let appVersion: string;
+
+    let settingWindowMaximized: boolean = $settings['window.maximized'];
+    $: updateSetting('window.maximized', settingWindowMaximized);
 
     onMount(() => {
         if (window.rpc) {
@@ -89,12 +93,36 @@
 
         reader.readAsText(file);
     }
+
+    /**
+     * Update specific setting.
+     *
+     * @param key
+     * @param value
+     */
+    function updateSetting(key: string, value: any): void {
+        settings.update((currentSettings) => {
+            return { ...currentSettings, [key]: value }
+        });
+    }
 </script>
 
 <div class="wrapper">
     <div class="close" on:click={closeSettings}>&#10005;</div>
 
     <div class="settings">
+        <div class="settings-group">
+            <h3 class="settings-group-header">Window</h3>
+            <hr class="divider"/>
+
+            <SettingsItem label="Start application maximized">
+                <input slot="value"
+                       type="checkbox"
+                       bind:checked={settingWindowMaximized}
+                />
+            </SettingsItem>
+        </div>
+
         <div class="settings-group">
             <h3 class="settings-group-header">Data</h3>
             <hr class="divider"/>

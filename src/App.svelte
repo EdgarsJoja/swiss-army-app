@@ -5,13 +5,15 @@
     import type { SidebarAction } from './layout/sidebar/sidebar-action';
     import { SidebarActionOrientation } from './layout/sidebar/sidebar-action';
     import { sidebarState } from './layout/stores/sidebar';
-    import { Settings } from './layout/settings';
+    import { settings, Settings } from './layout/settings';
     import { fade } from 'svelte/transition';
+    import { onMount } from 'svelte';
+    import { appWindow } from '@tauri-apps/api/window';
 
     let collapsedSidebar: boolean;
     $: collapsedSidebar = $sidebarState === 'collapsed';
 
-    let settingsOpen: boolean = true;
+    let settingsOpen: boolean = false;
 
     const sidebarActions: SidebarAction[] = [
         {
@@ -26,6 +28,14 @@
             orientation: SidebarActionOrientation.Right
         },
     ];
+
+    onMount(() => {
+        appWindow.center();
+
+        if ($settings['window.maximized']) {
+            appWindow.maximize();
+        }
+    });
 
     /**
      * Open settings view.
@@ -61,7 +71,7 @@
         <SideBar {sidebarActions} isCollapsed={collapsedSidebar}/>
     </div>
     <div class="content" class:wide={collapsedSidebar}>
-        <Content />
+        <Content/>
     </div>
 
     {#if settingsOpen}
@@ -116,6 +126,11 @@
 
     :global(input, textarea) {
         padding: 0.75em;
+    }
+
+    :global(input[type="checkbox"]) {
+        width: 18px;
+        height: 18px;
     }
 
     :global(button) {

@@ -9,6 +9,7 @@ New features:
 - Settings view:
   - App data export/import actions;
   - App information data;
+  - App startup window maximized state;
 
 Bugfixes:
 - Fixed "copy" functionality for sha hash;
