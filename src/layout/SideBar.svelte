@@ -1,9 +1,12 @@
 <script lang="ts">
     import { selectedApp } from '../shared/stores/selected-app.js';
-    import { getVersion } from '@tauri-apps/api/app';
+    import type { SidebarAction } from './sidebar/sidebar-action';
+    import { SidebarActionOrientation } from './sidebar/sidebar-action';
+
+    export let sidebarActions: SidebarAction[] = [];
+    export let isCollapsed = false;
 
     let appsFilter: string = '';
-    let appVersion: string = '';
 
     interface App {
         appCode: string;
@@ -22,13 +25,13 @@
     let filteredApps: App[];
     $: filteredApps = filterApps(appsFilter);
 
-    selectApp($selectedApp);
+    let leftSidebarActions: SidebarAction[];
+    $: leftSidebarActions = sidebarActions.filter(action => action.orientation === SidebarActionOrientation.Left);
 
-    if (window.rpc) {
-        getVersion().then((version) => {
-            appVersion = version;
-        });
-    }
+    let rightSidebarActions: SidebarAction[];
+    $: rightSidebarActions = sidebarActions.filter(action => action.orientation === SidebarActionOrientation.Right);
+
+    selectApp($selectedApp);
 
     /**
      * Set global state for currently selected app.
@@ -50,18 +53,35 @@
 </script>
 
 <div class="wrapper">
-    <input class="app-filter" type="text" bind:value={appsFilter}/>
-    {#each filteredApps as app}
-        <div class="app"
-             class:selected={app.appCode === $selectedApp}
-             on:click={ () => selectApp(app.appCode) }
-        >{app.label}</div>
-    {/each}
-</div>
+    {#if !isCollapsed}
+        <input class="app-filter" type="text" bind:value={appsFilter}/>
+    {/if}
+    <div class="actions" class:collapsed={isCollapsed}>
+        <div class="left">
+            {#each leftSidebarActions as action}
+                <button type="button" class="action-button" on:click={action.action}>
+                    {@html !isCollapsed || !action.textCollapsed ? action.text : action.textCollapsed}
+                </button>
+            {/each}
+        </div>
+        <div class="right">
+            {#each rightSidebarActions as action}
+                <button type="button" class="action-button" on:click={action.action}>
+                    {@html !isCollapsed || !action.textCollapsed ? action.text : action.textCollapsed}
+                </button>
+            {/each}
+        </div>
+    </div>
 
-{#if appVersion}
-    <span class="app-version">v{appVersion}</span>
-{/if}
+    {#if !isCollapsed}
+        {#each filteredApps as app}
+            <div class="app"
+                 class:selected={app.appCode === $selectedApp}
+                 on:click={ () => selectApp(app.appCode) }
+            >{app.label}</div>
+        {/each}
+    {/if}
+</div>
 
 <style lang="scss">
     @import "src/shared/styles/variables";
@@ -90,6 +110,35 @@
             &.selected {
                 font-weight: bold;
                 color: $app-selected-text-color;
+            }
+        }
+
+        .actions {
+            margin-bottom: .5em;
+            display: flex;
+            justify-content: space-between;
+
+            &.collapsed {
+                flex-direction: column-reverse;
+
+                .action-button {
+                    margin-bottom: .25em;
+
+                    &:not(:first-of-type) {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .action-button {
+                width: 1.5em;
+                padding: .1em;
+                font-size: 2em;
+                margin-bottom: 0;
+
+                &:not(:first-of-type) {
+                    margin-left: .25em;
+                }
             }
         }
     }

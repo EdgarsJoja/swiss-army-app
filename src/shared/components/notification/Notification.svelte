@@ -33,6 +33,7 @@
         box-shadow: 0 14px 28px rgba(#000, 0.25), 0 10px 10px rgba(#000, 0.22);
         cursor: pointer;
         background: $color-dark;
+        text-align: left;
 
         &:hover {
             box-shadow: 0 20px 28px rgba(#000, 0.25), 0 10px 10px rgba(#000, 0.22);
