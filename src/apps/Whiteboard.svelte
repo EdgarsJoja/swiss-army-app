@@ -1,6 +1,6 @@
 <script lang="ts">
     import DrawArea from './whiteboard/components/DrawArea.svelte';
-    import { SvelteComponent } from 'svelte';
+    import type { SvelteComponent } from 'svelte';
 
     let drawAreaComponent: SvelteComponent;
 </script>

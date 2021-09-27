@@ -1,5 +1,7 @@
 <script lang="ts">
     import { encode, decode } from '../shared/functions/base64';
+    import { addNotification } from '../layout/utils/notifications';
+    import { NotificationType } from '../shared/components/notification';
 
     let base64Input: string;
     let base64Output: string;
@@ -12,8 +14,12 @@
         try {
             base64Output = decode(base64Input || '');
         } catch (e) {
-            base64Output = 'Cannot decode!'
-            console.error(`Cannot base64 decode: ${base64Input}`);
+            base64Output = 'Cannot decode!';
+            addNotification({
+                type: NotificationType.Error,
+                title: 'Decode error',
+                message: `Cannot base64 decode: ${base64Input}`
+            });
         }
     }
 </script>
@@ -47,7 +53,6 @@
 
         .actions {
             margin: 1em 0;
-            text-align: center;
         }
 
         .output-field {

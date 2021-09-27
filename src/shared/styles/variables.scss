@@ -18,7 +18,14 @@ $background-color: $color-background;
 
 /* Buttons */
 $button-text-color: $color-primary-contrast;
+$button-text-color-active: $color-dark;
 
 /* Inputs */
 $input-background-color: $color-surface;
 $input-text-color: $color-surface-contrast;
+
+/* Notifications */
+$notification-color-info: #3685B5;
+$notification-color-success: $color-green;
+$notification-color-warning: #BC7710;
+$notification-color-error: $color-red;

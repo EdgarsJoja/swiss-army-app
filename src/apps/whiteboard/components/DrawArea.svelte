@@ -1,5 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { addNotification } from '../../../layout/utils/notifications';
+    import { NotificationType } from '../../../shared/components/notification';
 
     /**
      * Clears canvas.
@@ -17,9 +19,15 @@
         const link = document.createElement('a');
 
         link.href = dataUrl;
-        link.download = 'img';
+        link.download = 'img_' + Date.now();
 
         link.click();
+
+        addNotification({
+            type: NotificationType.Success,
+            title: 'Download success',
+            message: 'Your drawing has been downloaded'
+        });
     }
 
     interface Coordinates {
