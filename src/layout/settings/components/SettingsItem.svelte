@@ -10,9 +10,12 @@
 </div>
 
 <style lang="scss">
+    @import 'src/shared/styles/variables';
+
     .settings-item {
         margin-top: 1em;
         display: flex;
         justify-content: space-between;
+        color: $color-surface-contrast;
     }
 </style>
