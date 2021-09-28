@@ -1,6 +1,13 @@
 Changelog
 ---
 
+v1.3.1:
+--
+Improvements:
+- Installation app name should show up correctly now;
+- Initial window centering improvement;
+- Settings text has more contrast to background for better visibility;
+
 v1.3.0:
 --
 New features:

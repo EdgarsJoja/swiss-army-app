@@ -30,8 +30,6 @@
     ];
 
     onMount(() => {
-        appWindow.center();
-
         if ($settings['window.maximized']) {
             appWindow.maximize();
         }
