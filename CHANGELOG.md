@@ -1,6 +1,12 @@
 Changelog
 ---
 
+v1.4.0:
+--
+Improvements:
+- Undo & Redo functionality for whiteboard app;
+
+
 v1.3.1:
 --
 Improvements:
