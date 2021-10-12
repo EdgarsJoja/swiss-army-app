@@ -87,7 +87,7 @@
     @import "shared/styles/variables";
 
     .wrapper {
-        height: 100%;
+        min-height: 100%;
         display: flex;
 
         .sidebar {

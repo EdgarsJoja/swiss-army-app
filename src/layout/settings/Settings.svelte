@@ -141,7 +141,7 @@
             <hr class="divider"/>
 
             <SettingsItem label="App version">
-                <span slot="value">{appVersion}</span>
+                <span slot="value">{appVersion ?? '-'}</span>
             </SettingsItem>
             <SettingsItem label="Developer">
                 <span slot="value">Edgars Joja</span>

@@ -91,7 +91,7 @@
     $app-selected-text-color: $color-accent;
 
     .wrapper {
-        height: 100%;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
         position: relative;
