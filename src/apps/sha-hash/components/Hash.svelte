@@ -32,6 +32,14 @@
      * Copy hashed value to clipboard.
      */
     function copyHashToClipboard(): void {
+        if (!(window as any).rpc) {
+            addNotification({
+                type: NotificationType.Info,
+                message: 'Copy to clipboard is not supported'
+            });
+            return;
+        }
+
         clipboard.writeText(hashedHex).then(() => {
             addNotification({
                 type: NotificationType.Success,
@@ -60,11 +68,13 @@
         <button type="submit" class="submit-button">Hash</button>
     </form>
 
-    <span class="result-label">Result:</span>
-    <div class="display-block">
-        <div class="hashed-result">{hashedHex}</div>
-    </div>
-    <button class="copy-button" on:click={copyHashToClipboard}>Copy</button>
+    {#if hashedHex}
+        <span class="result-label">Result:</span>
+        <div class="display-block">
+            <div class="hashed-result">{hashedHex}</div>
+        </div>
+        <button class="copy-button" on:click={copyHashToClipboard}>Copy</button>
+    {/if}
 </div>
 
 <style lang="scss">

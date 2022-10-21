@@ -5,11 +5,7 @@ v1.4.0:
 --
 Improvements:
 - Undo & Redo functionality for whiteboard app;
-- Notepad app rich text editor functionality;
-  - Bold, italic formatting;
-  - Code block;
-  - Checklist;
-
+- Various minor UX improvements;
 
 v1.3.1:
 --
