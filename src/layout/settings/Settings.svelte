@@ -12,12 +12,8 @@
     let settingWindowMaximized: boolean = $settings['window.maximized'];
     $: updateSetting('window.maximized', settingWindowMaximized);
 
-    onMount(() => {
-        if (window.rpc) {
-            getVersion().then(version => {
-                appVersion = version;
-            })
-        }
+    onMount(async () => {
+        appVersion = await getVersion();
 
         document.onkeydown = (event) => {
             if (event.key === 'Escape') {

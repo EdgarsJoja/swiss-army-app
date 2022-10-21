@@ -42,6 +42,7 @@
         &-content {
             border-left: 3px solid $notification-color-info;
             padding-left: 1em;
+            color: $notification-text-color;
         }
 
         &-title {

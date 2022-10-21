@@ -31,20 +31,11 @@
     /**
      * Copy hashed value to clipboard.
      */
-    function copyHashToClipboard(): void {
-        if (!(window as any).rpc) {
-            addNotification({
-                type: NotificationType.Info,
-                message: 'Copy to clipboard is not supported'
-            });
-            return;
-        }
-
-        clipboard.writeText(hashedHex).then(() => {
-            addNotification({
-                type: NotificationType.Success,
-                message: 'Result copied to clipboard!'
-            });
+    async function copyHashToClipboard() {
+        await clipboard.writeText(hashedHex);
+        addNotification({
+            type: NotificationType.Success,
+            message: 'Result copied to clipboard!'
         });
     }
 </script>

@@ -26,7 +26,7 @@
             console.log('Oh no! Anyway...');
         }
 
-        return parsedValue;
+        return parsedValue ?? {};
     }
 
     /**
