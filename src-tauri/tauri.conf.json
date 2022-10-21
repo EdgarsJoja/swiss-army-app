@@ -28,13 +28,11 @@
       "shortDescription": "Swiss Army App",
       "longDescription": "One stop app for all of your development needs.",
       "deb": {
-        "depends": [],
-        "useBootstrapper": false
+        "depends": []
       },
       "macOS": {
         "frameworks": [],
         "minimumSystemVersion": "",
-        "useBootstrapper": false,
         "exceptionDomain": "",
         "signingIdentity": null,
         "entitlements": null
