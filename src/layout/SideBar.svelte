@@ -15,7 +15,7 @@
 
     const apps: App[] = [
         { appCode: 'json_viewer', label: 'Json Viewer' },
-        { appCode: 'sha', label: 'Sha-X Hash' },
+        { appCode: 'sha', label: 'SHA Hash' },
         { appCode: 'notepad', label: 'Notepad' },
         { appCode: 'whiteboard', label: 'Whiteboard' },
         { appCode: 'jwt', label: 'JWT' },
