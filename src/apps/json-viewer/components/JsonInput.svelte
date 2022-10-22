@@ -19,5 +19,6 @@
         width: 100%;
         height: 100%;
         margin-top: .5em;
+        outline: none;
     }
 </style>

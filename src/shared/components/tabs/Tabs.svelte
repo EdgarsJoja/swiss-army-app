@@ -54,9 +54,9 @@
                 cursor: pointer;
                 color: $tab-text-color;
                 border: 1px solid transparent;
+                transition: all .2s ease-in-out;
 
                 &:hover {
-                    transition: all .2s ease-in-out;
                     border-bottom: 1px solid $color-grey;
                     opacity: .75;
                 }
