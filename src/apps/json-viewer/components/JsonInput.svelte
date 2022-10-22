@@ -17,7 +17,7 @@
 <style lang="scss">
     .json-input {
         width: 100%;
-        height: 50%;
+        height: 100%;
         margin-top: .5em;
     }
 </style>
