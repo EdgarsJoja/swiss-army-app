@@ -34,6 +34,7 @@
         cursor: pointer;
         background: $color-dark;
         text-align: left;
+        word-wrap: anywhere;
 
         &:hover {
             box-shadow: 0 20px 28px rgba(#000, 0.25), 0 10px 10px rgba(#000, 0.22);
@@ -42,6 +43,7 @@
         &-content {
             border-left: 3px solid $notification-color-info;
             padding-left: 1em;
+            color: $notification-text-color;
         }
 
         &-title {

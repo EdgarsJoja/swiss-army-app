@@ -1,5 +1,5 @@
 <script lang="ts">
-import Hash from './sha-hash/components/Hash.svelte';
+    import Hash from './sha-hash/components/Hash.svelte';
 </script>
 
 <Hash/>

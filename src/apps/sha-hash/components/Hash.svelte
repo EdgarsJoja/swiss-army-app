@@ -31,12 +31,11 @@
     /**
      * Copy hashed value to clipboard.
      */
-    function copyHashToClipboard(): void {
-        clipboard.writeText(hashedHex).then(() => {
-            addNotification({
-                type: NotificationType.Success,
-                message: 'Result copied to clipboard!'
-            });
+    async function copyHashToClipboard() {
+        await clipboard.writeText(hashedHex);
+        addNotification({
+            type: NotificationType.Success,
+            message: 'Result copied to clipboard!'
         });
     }
 </script>
@@ -60,11 +59,13 @@
         <button type="submit" class="submit-button">Hash</button>
     </form>
 
-    <span class="result-label">Result:</span>
-    <div class="display-block">
-        <div class="hashed-result">{hashedHex}</div>
-    </div>
-    <button class="copy-button" on:click={copyHashToClipboard}>Copy</button>
+    {#if hashedHex}
+        <span class="result-label">Result:</span>
+        <div class="display-block">
+            <div class="hashed-result">{hashedHex}</div>
+        </div>
+        <button class="copy-button" on:click={copyHashToClipboard}>Copy</button>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -107,6 +108,8 @@
 
             .hashed-result {
                 overflow-x: auto;
+                word-wrap: anywhere;
+                user-select: all;
             }
         }
 

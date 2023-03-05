@@ -2,10 +2,26 @@
     import { jwt } from '../stores/jwt';
     import { decode } from '../functions/base64url';
     import JsonView from '../../../shared/components/JsonView.svelte';
+    import { addNotification } from '../../../layout/utils/notifications';
+    import { NotificationType } from '../../../shared/components/notification';
 
-    $: JWTHeader = decode($jwt?.split('.')[0] ?? '');
-    $: JWTPayload = decode($jwt?.split('.')[1] ?? '');
+    $: JWTHeader = decodeSafely($jwt?.split('.')[0] ?? '');
+    $: JWTPayload = decodeSafely($jwt?.split('.')[1] ?? '');
     $: JWTSignature = $jwt?.split('.')[2] ?? '';
+
+    function decodeSafely(value: string): string {
+        try {
+            return decode(value);
+        } catch (e) {
+            console.error(e);
+            addNotification({
+                type: NotificationType.Error,
+                message: 'Could not decode the JWT'
+            });
+        }
+
+        return '';
+    }
 </script>
 
 <span class="label">Header:</span>
