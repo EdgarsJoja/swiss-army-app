@@ -94,6 +94,8 @@
     $color-undefined: #eee;
 
     .wrapper {
+        word-wrap: anywhere;
+
         :global(.json-root > .json-object) {
             padding: 0;
         }

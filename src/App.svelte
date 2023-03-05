@@ -159,5 +159,6 @@
         z-index: 10;
         position: fixed;
         right: 1em;
+        max-width: 50vw;
     }
 </style>

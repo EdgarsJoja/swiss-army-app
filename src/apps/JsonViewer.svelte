@@ -8,7 +8,7 @@
     let collapseJson: boolean = true;
 </script>
 
-<Tabs>
+<Tabs activeTab="json-output">
     <Tab id="json-input" title="Input">
         <JsonInput/>
     </Tab>

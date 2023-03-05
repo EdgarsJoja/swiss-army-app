@@ -1,12 +1,20 @@
 <script lang="ts">
     import type { Tab } from './tab';
-    import { setContext } from 'svelte';
+    import { onMount, setContext } from 'svelte';
     import { writable } from 'svelte/store';
+
+    export let activeTab = '';
 
     const tabs: Tab[] = [];
     const activeTabId = writable('');
 
     setContext('tabs', { activeTabId, addTab });
+
+    onMount(() => {
+        if (activeTab) {
+            activeTabId.set(activeTab);
+        }
+    });
 
     function addTab(tab: Tab): void {
         tabs.push(tab);
