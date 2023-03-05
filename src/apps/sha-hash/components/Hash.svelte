@@ -108,6 +108,8 @@
 
             .hashed-result {
                 overflow-x: auto;
+                word-wrap: anywhere;
+                user-select: all;
             }
         }
 

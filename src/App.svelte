@@ -131,10 +131,15 @@
         height: 18px;
     }
 
+    :global(select) {
+        appearance: none;
+    }
+
     :global(button) {
         padding: .5em 1em;
         border: 0;
         color: $button-text-color;
+        box-shadow: 0 8px 10px -6px #000;
 
         &:hover {
             opacity: .75;

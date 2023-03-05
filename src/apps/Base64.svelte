@@ -62,6 +62,8 @@
             padding: 1em;
             border-radius: 5px;
             color: $color-surface-contrast;
+            user-select: all;
+            word-wrap: anywhere;
         }
     }
 </style>
