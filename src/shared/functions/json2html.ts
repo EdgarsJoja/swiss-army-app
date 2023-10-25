@@ -43,7 +43,7 @@ const parseString = (json) => {
 const parseObject = (json: object): string => {
     let html = '';
     for (const [key, value] of Object.entries(json)) {
-        html += `<li class="json-object-item ${typeof value === 'object' ? 'can-collapse' : ''}">
+        html += `<li class="json-object-item ${typeof value === 'object' && value !== null ? 'can-collapse' : ''}">
                     <span class="key">${key}:</span>
                     <span class="value">${json2html(value, false)}</span>
                  </li>`;

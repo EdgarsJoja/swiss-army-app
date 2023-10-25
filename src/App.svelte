@@ -87,7 +87,7 @@
     @import "shared/styles/variables";
 
     .wrapper {
-        height: 100%;
+        min-height: 100%;
         display: flex;
 
         .sidebar {
@@ -131,10 +131,15 @@
         height: 18px;
     }
 
+    :global(select) {
+        appearance: none;
+    }
+
     :global(button) {
         padding: .5em 1em;
         border: 0;
         color: $button-text-color;
+        box-shadow: 0 8px 10px -6px #000;
 
         &:hover {
             opacity: .75;
@@ -159,5 +164,6 @@
         z-index: 10;
         position: fixed;
         right: 1em;
+        max-width: 50vw;
     }
 </style>

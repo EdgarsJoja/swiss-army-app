@@ -33,8 +33,10 @@
         <button class="button-decode" on:click={decodeInput}>Decode</button>
     </div>
 
-    <span class="output-label">Output:</span>
-    <div class="output-field">{ base64Output || '' }</div>
+    {#if base64Output}
+        <span class="output-label">Output:</span>
+        <div class="output-field">{ base64Output || '' }</div>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -60,6 +62,8 @@
             padding: 1em;
             border-radius: 5px;
             color: $color-surface-contrast;
+            user-select: all;
+            word-wrap: anywhere;
         }
     }
 </style>
